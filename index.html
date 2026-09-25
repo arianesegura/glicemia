@@ -1,0 +1,1381 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#7f1d1d"
+    >
+
+    <title>Dextro</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background: #f5f5f5;
+
+            color: #222;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+        }
+
+
+        header {
+
+            background: #7f1d1d;
+
+            color: white;
+
+            padding:
+                22px 18px;
+
+        }
+
+
+        header h1 {
+
+            margin: 0;
+
+            font-size: 26px;
+
+        }
+
+
+        header p {
+
+            margin:
+                5px 0 0;
+
+            font-size: 14px;
+
+            opacity: .9;
+
+        }
+
+
+        main {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            padding: 15px;
+
+        }
+
+
+        .card {
+
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            margin-bottom: 15px;
+
+            box-shadow:
+                0 2px 8px
+                rgba(0,0,0,.06);
+
+        }
+
+
+        h2 {
+
+            margin:
+                0 0 15px;
+
+            font-size: 19px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-top: 15px;
+
+            margin-bottom: 6px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+        }
+
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border:
+                1px solid #ccc;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            font-family: inherit;
+
+            background: white;
+
+        }
+
+
+        input:focus,
+        textarea:focus {
+
+            outline: none;
+
+            border-color:
+                #7f1d1d;
+
+        }
+
+
+        textarea {
+
+            min-height: 90px;
+
+            resize: vertical;
+
+        }
+
+
+        .btn-registrar {
+
+            width: 100%;
+
+            margin-top: 16px;
+
+            padding: 14px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background:
+                #7f1d1d;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .btn-registrar:active {
+
+            transform: scale(.99);
+
+        }
+
+
+        .titulo {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .btn-exportar {
+
+            border: 0;
+
+            border-radius: 9px;
+
+            padding:
+                9px 12px;
+
+            background: #eee;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .medicao {
+
+            border-top:
+                1px solid #eee;
+
+            padding:
+                15px 0;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 12px;
+
+        }
+
+
+        .valor {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+        }
+
+
+        .data-hora {
+
+            margin-top: 5px;
+
+            color: #777;
+
+            font-size: 13px;
+
+        }
+
+
+        .observacao {
+
+            margin-top: 7px;
+
+            color: #444;
+
+            font-size: 14px;
+
+            white-space: pre-wrap;
+
+        }
+
+
+        .btn-excluir {
+
+            align-self: center;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            padding:
+                8px 11px;
+
+            background:
+                #fee2e2;
+
+            color:
+                #991b1b;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .vazio {
+
+            text-align: center;
+
+            color: #777;
+
+            padding: 20px;
+
+        }
+
+
+        .info {
+
+            margin-top: 10px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 1.4;
+
+        }
+
+
+        .btn-apagar {
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 11px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background:
+                #fee2e2;
+
+            color:
+                #991b1b;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .titulo {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .medicao {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .btn-excluir {
+
+                align-self:
+                    flex-start;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>Dextro</h1>
+
+    <p>
+        Controle de glicemia
+    </p>
+
+</header>
+
+
+
+<main>
+
+
+    <!-- =========================
+         NOVA MEDIÇÃO
+    ========================== -->
+
+    <section class="card">
+
+        <h2>
+            Nova medição
+        </h2>
+
+
+        <label for="glicemia">
+
+            Glicemia (mg/dL)
+
+        </label>
+
+
+        <input
+
+            id="glicemia"
+
+            type="number"
+
+            min="20"
+
+            max="600"
+
+            inputmode="numeric"
+
+            placeholder="Digite o valor"
+
+        >
+
+
+
+        <label for="observacao">
+
+            Observação
+
+        </label>
+
+
+        <textarea
+
+            id="observacao"
+
+            placeholder="Digite uma observação, se necessário"
+
+        ></textarea>
+
+
+
+        <p class="info">
+
+            A data e a hora são registradas
+            automaticamente no momento em
+            que você tocar no botão.
+
+        </p>
+
+
+
+        <button
+
+            id="registrar"
+
+            class="btn-registrar"
+
+        >
+
+            Registrar glicemia
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         HISTÓRICO
+    ========================== -->
+
+    <section class="card">
+
+
+        <div class="titulo">
+
+            <h2>
+                Histórico
+            </h2>
+
+
+            <button
+
+                id="exportar"
+
+                class="btn-exportar"
+
+            >
+
+                Exportar CSV
+
+            </button>
+
+        </div>
+
+
+
+        <div id="historico">
+
+            <p class="vazio">
+
+                Nenhuma glicemia registrada.
+
+            </p>
+
+        </div>
+
+
+
+        <button
+
+            id="apagar"
+
+            class="btn-apagar"
+
+        >
+
+            Apagar todo o histórico
+
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* ==================================================
+   CONFIGURAÇÃO
+================================================== */
+
+
+const CHAVE =
+    "dextro_registros_v1";
+
+
+
+/* ==================================================
+   ELEMENTOS
+================================================== */
+
+
+const campoGlicemia =
+    document.getElementById(
+        "glicemia"
+    );
+
+
+const campoObservacao =
+    document.getElementById(
+        "observacao"
+    );
+
+
+const botaoRegistrar =
+    document.getElementById(
+        "registrar"
+    );
+
+
+const historico =
+    document.getElementById(
+        "historico"
+    );
+
+
+const botaoExportar =
+    document.getElementById(
+        "exportar"
+    );
+
+
+const botaoApagar =
+    document.getElementById(
+        "apagar"
+    );
+
+
+
+/* ==================================================
+   CARREGAR
+================================================== */
+
+
+function carregarRegistros() {
+
+    try {
+
+        const dados =
+            localStorage.getItem(
+                CHAVE
+            );
+
+
+        if (!dados) {
+
+            return [];
+
+        }
+
+
+        return JSON.parse(
+            dados
+        );
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            erro
+        );
+
+        return [];
+
+    }
+
+}
+
+
+
+/* ==================================================
+   SALVAR
+================================================== */
+
+
+function salvarRegistros(
+    registros
+) {
+
+    localStorage.setItem(
+
+        CHAVE,
+
+        JSON.stringify(
+            registros
+        )
+
+    );
+
+}
+
+
+
+/* ==================================================
+   REGISTRAR GLICEMIA
+================================================== */
+
+
+function registrarGlicemia() {
+
+
+    const valor =
+        Number(
+            campoGlicemia.value
+        );
+
+
+
+    /* VALIDAÇÃO */
+
+    if (
+
+        !Number.isFinite(
+            valor
+        )
+
+        ||
+
+        valor < 20
+
+        ||
+
+        valor > 600
+
+    ) {
+
+        alert(
+            "Digite uma glicemia entre 20 e 600 mg/dL."
+        );
+
+        campoGlicemia.focus();
+
+        return;
+
+    }
+
+
+
+    /*
+        CAPTURA DA DATA E HORA
+
+        Este momento acontece quando
+        o botão é pressionado.
+
+        O valor fica salvo no registro.
+        Ele não será recalculado depois.
+    */
+
+
+    const agora =
+        new Date();
+
+
+
+    const registro = {
+
+        id:
+            Date.now(),
+
+        glicemia:
+            valor,
+
+        dataHora:
+            agora.toISOString(),
+
+        observacao:
+            campoObservacao
+                .value
+                .trim()
+
+    };
+
+
+
+    const registros =
+        carregarRegistros();
+
+
+
+    registros.push(
+        registro
+    );
+
+
+
+    salvarRegistros(
+        registros
+    );
+
+
+
+    /* LIMPA OS CAMPOS */
+
+    campoGlicemia.value =
+        "";
+
+    campoObservacao.value =
+        "";
+
+
+
+    /* ATUALIZA */
+
+    mostrarHistorico();
+
+
+
+    /* VOLTA PARA O CAMPO */
+
+    campoGlicemia.focus();
+
+}
+
+
+
+/* ==================================================
+   MOSTRAR HISTÓRICO
+================================================== */
+
+
+function mostrarHistorico() {
+
+
+    const registros =
+        carregarRegistros();
+
+
+
+    /*
+        Mais recente primeiro.
+    */
+
+
+    registros.sort(
+
+        function(a, b) {
+
+            return (
+
+                new Date(
+                    b.dataHora
+                )
+
+                -
+
+                new Date(
+                    a.dataHora
+                )
+
+            );
+
+        }
+
+    );
+
+
+
+    /*
+        Nenhum registro
+    */
+
+
+    if (
+        registros.length === 0
+    ) {
+
+        historico.innerHTML = `
+
+            <p class="vazio">
+
+                Nenhuma glicemia registrada.
+
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    historico.innerHTML =
+        "";
+
+
+
+    registros.forEach(
+
+        function(registro) {
+
+
+            const data =
+                new Date(
+                    registro.dataHora
+                );
+
+
+
+            const dia =
+                String(
+                    data.getDate()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const mes =
+                String(
+                    data.getMonth() + 1
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const ano =
+                data.getFullYear();
+
+
+            const hora =
+                String(
+                    data.getHours()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const minuto =
+                String(
+                    data.getMinutes()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "medicao";
+
+
+
+            item.innerHTML = `
+
+                <div>
+
+                    <div class="valor">
+
+                        ${registro.glicemia}
+                        mg/dL
+
+                    </div>
+
+
+                    <div class="data-hora">
+
+                        ${dia}/${mes}/${ano}
+                        às
+                        ${hora}:${minuto}
+
+                    </div>
+
+
+                    ${
+                        registro.observacao
+
+                        ?
+
+                        `
+
+                        <div class="observacao">
+
+                            ${escaparHTML(
+                                registro.observacao
+                            )}
+
+                        </div>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+                </div>
+
+
+                <button
+
+                    class="btn-excluir"
+
+                    data-id="${registro.id}"
+
+                >
+
+                    Excluir
+
+                </button>
+
+            `;
+
+
+
+            historico.appendChild(
+                item
+            );
+
+
+
+            item
+
+                .querySelector(
+                    ".btn-excluir"
+                )
+
+                .addEventListener(
+
+                    "click",
+
+                    function() {
+
+                        excluirRegistro(
+                            registro.id
+                        );
+
+                    }
+
+                );
+
+        }
+
+    );
+
+}
+
+
+
+/* ==================================================
+   EXCLUIR
+================================================== */
+
+
+function excluirRegistro(
+    id
+) {
+
+
+    const registros =
+        carregarRegistros();
+
+
+
+    const novosRegistros =
+        registros.filter(
+
+            function(registro) {
+
+                return (
+                    registro.id !== id
+                );
+
+            }
+
+        );
+
+
+
+    salvarRegistros(
+        novosRegistros
+    );
+
+
+    mostrarHistorico();
+
+}
+
+
+
+/* ==================================================
+   APAGAR TUDO
+================================================== */
+
+
+function apagarTudo() {
+
+
+    const confirmar =
+        confirm(
+
+            "Tem certeza que deseja apagar todo o histórico?"
+
+        );
+
+
+    if (!confirmar) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        CHAVE
+    );
+
+
+    mostrarHistorico();
+
+}
+
+
+
+/* ==================================================
+   EXPORTAR CSV
+================================================== */
+
+
+function exportarCSV() {
+
+
+    const registros =
+        carregarRegistros();
+
+
+
+    if (
+        registros.length === 0
+    ) {
+
+        alert(
+            "Não há registros para exportar."
+        );
+
+        return;
+
+    }
+
+
+
+    let csv =
+        "Glicemia (mg/dL);Data e hora;Observação\n";
+
+
+
+    registros.forEach(
+
+        function(registro) {
+
+
+            const data =
+                new Date(
+                    registro.dataHora
+                );
+
+
+            const dia =
+                String(
+                    data.getDate()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const mes =
+                String(
+                    data.getMonth() + 1
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const ano =
+                data.getFullYear();
+
+
+            const hora =
+                String(
+                    data.getHours()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const minuto =
+                String(
+                    data.getMinutes()
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            const dataHora =
+                `${dia}/${mes}/${ano} ${hora}:${minuto}`;
+
+
+            const observacao =
+                (
+                    registro.observacao ||
+                    ""
+                )
+                .replaceAll(
+                    '"',
+                    '""'
+                );
+
+
+            csv +=
+                `${registro.glicemia};` +
+                `"${dataHora}";` +
+                `"${observacao}"\n`;
+
+        }
+
+    );
+
+
+
+    const arquivo =
+        new Blob(
+
+            [
+                "\ufeff" +
+                csv
+            ],
+
+            {
+                type:
+                    "text/csv;charset=utf-8"
+            }
+
+        );
+
+
+
+    const url =
+        URL.createObjectURL(
+            arquivo
+        );
+
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        "historico-glicemia.csv";
+
+
+    link.click();
+
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+}
+
+
+
+/* ==================================================
+   SEGURANÇA
+================================================== */
+
+
+function escaparHTML(
+    texto
+) {
+
+    return texto
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+
+/* ==================================================
+   EVENTOS
+================================================== */
+
+
+botaoRegistrar.addEventListener(
+
+    "click",
+
+    registrarGlicemia
+
+);
+
+
+
+botaoExportar.addEventListener(
+
+    "click",
+
+    exportarCSV
+
+);
+
+
+
+botaoApagar.addEventListener(
+
+    "click",
+
+    apagarTudo
+
+);
+
+
+
+/*
+    Permite apertar ENTER
+    no campo da glicemia.
+*/
+
+
+campoGlicemia.addEventListener(
+
+    "keydown",
+
+    function(evento) {
+
+        if (
+            evento.key === "Enter"
+        ) {
+
+            registrarGlicemia();
+
+        }
+
+    }
+
+);
+
+
+
+/* ==================================================
+   INICIALIZAÇÃO
+================================================== */
+
+
+mostrarHistorico();
+
+
+</script>
+
+
+</body>
+
+</html>
+```
