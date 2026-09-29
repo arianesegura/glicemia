@@ -891,7 +891,14 @@
       
     );
 
+function testarAutorizacao() {
+  const planilha = SpreadsheetApp.getActiveSpreadsheet();
 
+  Logger.log(planilha.getName());
+
+  return planilha.getName();
+}
+  
   /*
    * Inicialização
    */
