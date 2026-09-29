@@ -1,1381 +1,911 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="theme-color"
-        content="#7f1d1d"
-    >
-
-    <title>Dextro</title>
-
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        body {
-
-            margin: 0;
-
-            background: #f5f5f5;
-
-            color: #222;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-        }
-
-
-        header {
-
-            background: #7f1d1d;
-
-            color: white;
-
-            padding:
-                22px 18px;
-
-        }
-
-
-        header h1 {
-
-            margin: 0;
-
-            font-size: 26px;
-
-        }
-
-
-        header p {
-
-            margin:
-                5px 0 0;
-
-            font-size: 14px;
-
-            opacity: .9;
-
-        }
-
-
-        main {
-
-            width: 100%;
-
-            max-width: 650px;
-
-            margin: auto;
-
-            padding: 15px;
-
-        }
-
-
-        .card {
-
-            background: white;
-
-            border-radius: 16px;
-
-            padding: 20px;
-
-            margin-bottom: 15px;
-
-            box-shadow:
-                0 2px 8px
-                rgba(0,0,0,.06);
-
-        }
-
-
-        h2 {
-
-            margin:
-                0 0 15px;
-
-            font-size: 19px;
-
-        }
-
-
-        label {
-
-            display: block;
-
-            margin-top: 15px;
-
-            margin-bottom: 6px;
-
-            font-weight: bold;
-
-            font-size: 14px;
-
-        }
-
-
-        input,
-        textarea {
-
-            width: 100%;
-
-            padding: 13px;
-
-            border:
-                1px solid #ccc;
-
-            border-radius: 10px;
-
-            font-size: 16px;
-
-            font-family: inherit;
-
-            background: white;
-
-        }
-
-
-        input:focus,
-        textarea:focus {
-
-            outline: none;
-
-            border-color:
-                #7f1d1d;
-
-        }
-
-
-        textarea {
-
-            min-height: 90px;
-
-            resize: vertical;
-
-        }
-
-
-        .btn-registrar {
-
-            width: 100%;
-
-            margin-top: 16px;
-
-            padding: 14px;
-
-            border: 0;
-
-            border-radius: 10px;
-
-            background:
-                #7f1d1d;
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-
-        .btn-registrar:active {
-
-            transform: scale(.99);
-
-        }
-
-
-        .titulo {
-
-            display: flex;
-
-            justify-content:
-                space-between;
-
-            align-items: center;
-
-            gap: 10px;
-
-        }
-
-
-        .btn-exportar {
-
-            border: 0;
-
-            border-radius: 9px;
-
-            padding:
-                9px 12px;
-
-            background: #eee;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-
-        .medicao {
-
-            border-top:
-                1px solid #eee;
-
-            padding:
-                15px 0;
-
-            display: flex;
-
-            justify-content:
-                space-between;
-
-            gap: 12px;
-
-        }
-
-
-        .valor {
-
-            font-size: 24px;
-
-            font-weight: bold;
-
-        }
-
-
-        .data-hora {
-
-            margin-top: 5px;
-
-            color: #777;
-
-            font-size: 13px;
-
-        }
-
-
-        .observacao {
-
-            margin-top: 7px;
-
-            color: #444;
-
-            font-size: 14px;
-
-            white-space: pre-wrap;
-
-        }
-
-
-        .btn-excluir {
-
-            align-self: center;
-
-            border: 0;
-
-            border-radius: 8px;
-
-            padding:
-                8px 11px;
-
-            background:
-                #fee2e2;
-
-            color:
-                #991b1b;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-
-        .vazio {
-
-            text-align: center;
-
-            color: #777;
-
-            padding: 20px;
-
-        }
-
-
-        .info {
-
-            margin-top: 10px;
-
-            color: #777;
-
-            font-size: 12px;
-
-            line-height: 1.4;
-
-        }
-
-
-        .btn-apagar {
-
-            width: 100%;
-
-            margin-top: 15px;
-
-            padding: 11px;
-
-            border: 0;
-
-            border-radius: 9px;
-
-            background:
-                #fee2e2;
-
-            color:
-                #991b1b;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-
-        @media (max-width: 450px) {
-
-            .titulo {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .medicao {
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .btn-excluir {
-
-                align-self:
-                    flex-start;
-
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#8b0000">
+
+  <title>Dextro</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #8b0000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 5px;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: .9;
+    }
+
+    main {
+      max-width: 600px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 15px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-principal {
+      width: 100%;
+      background: #8b0000;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .btn-excluir {
+      background: #eee;
+      color: #900;
+      margin-top: 8px;
+    }
+
+    .btn-apagar {
+      background: #900;
+      color: white;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn-exportar {
+      background: #333;
+      color: white;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .registro {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .registro:last-child {
+      border-bottom: 0;
+    }
+
+    .valor {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .data {
+      color: #666;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .observacao {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .status {
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      background: #eee;
+    }
+
+    .status.ok {
+      background: #e7f5e7;
+      color: #176b17;
+    }
+
+    .status.erro {
+      background: #fde8e8;
+      color: #9b1c1c;
+    }
+
+    .vazio {
+      text-align: center;
+      color: #777;
+      padding: 20px;
+    }
+
+  </style>
 </head>
-
 
 <body>
 
-
 <header>
-
-    <h1>Dextro</h1>
-
-    <p>
-        Controle de glicemia
-    </p>
-
+  <h1>Dextro</h1>
+  <p>Controle de glicemia</p>
 </header>
-
-
 
 <main>
 
-
-    <!-- =========================
-         NOVA MEDIÇÃO
-    ========================== -->
-
-    <section class="card">
-
-        <h2>
-            Nova medição
-        </h2>
-
-
-        <label for="glicemia">
-
-            Glicemia (mg/dL)
-
-        </label>
-
-
-        <input
-
-            id="glicemia"
-
-            type="number"
-
-            min="20"
-
-            max="600"
-
-            inputmode="numeric"
-
-            placeholder="Digite o valor"
-
-        >
-
-
-
-        <label for="observacao">
-
-            Observação
-
-        </label>
-
-
-        <textarea
-
-            id="observacao"
-
-            placeholder="Digite uma observação, se necessário"
-
-        ></textarea>
-
-
-
-        <p class="info">
-
-            A data e a hora são registradas
-            automaticamente no momento em
-            que você tocar no botão.
-
-        </p>
-
-
-
-        <button
-
-            id="registrar"
-
-            class="btn-registrar"
-
-        >
-
-            Registrar glicemia
-
-        </button>
-
-    </section>
-
-
-
-    <!-- =========================
-         HISTÓRICO
-    ========================== -->
-
-    <section class="card">
-
-
-        <div class="titulo">
-
-            <h2>
-                Histórico
-            </h2>
-
-
-            <button
-
-                id="exportar"
-
-                class="btn-exportar"
-
-            >
-
-                Exportar CSV
-
-            </button>
-
-        </div>
-
-
-
-        <div id="historico">
-
-            <p class="vazio">
-
-                Nenhuma glicemia registrada.
-
-            </p>
-
-        </div>
-
-
-
-        <button
-
-            id="apagar"
-
-            class="btn-apagar"
-
-        >
-
-            Apagar todo o histórico
-
-        </button>
-
-
-    </section>
-
+  <div id="status" class="status">
+    Pronto para registrar.
+  </div>
+
+  <div class="card">
+
+    <label for="glicemia">
+      Glicemia (mg/dL)
+    </label>
+
+    <input
+      id="glicemia"
+      type="number"
+      min="20"
+      max="600"
+      inputmode="numeric"
+      placeholder="Ex.: 120"
+    >
+
+    <label for="observacao">
+      Observação
+    </label>
+
+    <textarea
+      id="observacao"
+      placeholder="Ex.: antes do jantar"
+    ></textarea>
+
+    <button
+      class="btn-principal"
+      onclick="registrarGlicemia()"
+    >
+      Registrar glicemia
+    </button>
+
+  </div>
+
+  <div class="card">
+
+    <h2>Histórico</h2>
+
+    <div id="historico"></div>
+
+    <button
+      class="btn-exportar"
+      onclick="exportarCSV()"
+    >
+      Exportar CSV
+    </button>
+
+    <button
+      class="btn-apagar"
+      onclick="apagarHistorico()"
+    >
+      Apagar todo o histórico
+    </button>
+
+  </div>
 
 </main>
 
-
-
 <script>
 
+  /*
+   * COLOQUE AQUI A URL GERADA PELO GOOGLE APPS SCRIPT
+   */
 
-/* ==================================================
-   CONFIGURAÇÃO
-================================================== */
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwFFHvYpxbn3cTG6aRtEBHukbygF2E8jcuYvI532nUNgMJnfDYeYM86KjJjzHIMVWjB9A/exec
+";
 
 
-const CHAVE =
+  /*
+   * Chave usada no armazenamento local
+   */
+
+  const STORAGE_KEY =
     "dextro_registros_v1";
 
 
+  /*
+   * Recupera registros do celular
+   */
 
-/* ==================================================
-   ELEMENTOS
-================================================== */
-
-
-const campoGlicemia =
-    document.getElementById(
-        "glicemia"
-    );
-
-
-const campoObservacao =
-    document.getElementById(
-        "observacao"
-    );
-
-
-const botaoRegistrar =
-    document.getElementById(
-        "registrar"
-    );
-
-
-const historico =
-    document.getElementById(
-        "historico"
-    );
-
-
-const botaoExportar =
-    document.getElementById(
-        "exportar"
-    );
-
-
-const botaoApagar =
-    document.getElementById(
-        "apagar"
-    );
-
-
-
-/* ==================================================
-   CARREGAR
-================================================== */
-
-
-function carregarRegistros() {
+  function obterRegistros() {
 
     try {
 
-        const dados =
-            localStorage.getItem(
-                CHAVE
-            );
+      return JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      ) || [];
 
+    } catch {
 
-        if (!dados) {
-
-            return [];
-
-        }
-
-
-        return JSON.parse(
-            dados
-        );
+      return [];
 
     }
 
-    catch (erro) {
-
-        console.error(
-            erro
-        );
-
-        return [];
-
-    }
-
-}
+  }
 
 
+  /*
+   * Salva registros no celular
+   */
 
-/* ==================================================
-   SALVAR
-================================================== */
-
-
-function salvarRegistros(
-    registros
-) {
+  function salvarRegistros(registros) {
 
     localStorage.setItem(
-
-        CHAVE,
-
-        JSON.stringify(
-            registros
-        )
-
+      STORAGE_KEY,
+      JSON.stringify(registros)
     );
 
-}
+  }
 
 
+  /*
+   * Escapa HTML para evitar que uma observação
+   * seja interpretada como código.
+   */
 
-/* ==================================================
-   REGISTRAR GLICEMIA
-================================================== */
+  function escaparHTML(texto) {
+
+    return String(texto)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  }
 
 
-function registrarGlicemia() {
+  /*
+   * Mostra status para o usuário
+   */
 
+  function mostrarStatus(mensagem, tipo = "") {
+
+    const elemento =
+      document.getElementById("status");
+
+    elemento.textContent = mensagem;
+
+    elemento.className =
+      "status " + tipo;
+
+  }
+
+
+  /*
+   * Registra a glicemia
+   */
+
+  async function registrarGlicemia() {
+
+    const campoGlicemia =
+      document.getElementById("glicemia");
+
+    const campoObservacao =
+      document.getElementById("observacao");
 
     const valor =
-        Number(
-            campoGlicemia.value
-        );
+      Number(campoGlicemia.value);
 
-
-
-    /* VALIDAÇÃO */
-
-    if (
-
-        !Number.isFinite(
-            valor
-        )
-
-        ||
-
-        valor < 20
-
-        ||
-
-        valor > 600
-
-    ) {
-
-        alert(
-            "Digite uma glicemia entre 20 e 600 mg/dL."
-        );
-
-        campoGlicemia.focus();
-
-        return;
-
-    }
-
+    const observacao =
+      campoObservacao.value.trim();
 
 
     /*
-        CAPTURA DA DATA E HORA
+     * Validação
+     */
 
-        Este momento acontece quando
-        o botão é pressionado.
+    if (
+      !valor ||
+      valor < 20 ||
+      valor > 600
+    ) {
 
-        O valor fica salvo no registro.
-        Ele não será recalculado depois.
-    */
+      alert(
+        "Digite uma glicemia entre 20 e 600 mg/dL."
+      );
+
+      return;
+
+    }
 
 
-    const agora =
-        new Date();
+    /*
+     * Captura a data/hora EXATA do momento
+     * em que o registro foi feito.
+     */
+
+    const agora = new Date();
 
 
+    /*
+     * ID único para evitar duplicações
+     */
+
+    const id =
+      Date.now().toString() +
+      "-" +
+      Math.random()
+        .toString(36)
+        .substring(2, 8);
+
+
+    /*
+     * Registro completo
+     */
 
     const registro = {
 
-        id:
-            Date.now(),
+      id: id,
 
-        glicemia:
-            valor,
+      glicemia: valor,
 
-        dataHora:
-            agora.toISOString(),
+      observacao: observacao,
 
-        observacao:
-            campoObservacao
-                .value
-                .trim()
+      dataHora: agora.toISOString(),
+
+      sincronizado: false
 
     };
 
 
+    /*
+     * 1 — Salva imediatamente no celular
+     */
 
     const registros =
-        carregarRegistros();
+      obterRegistros();
 
+    registros.unshift(registro);
 
+    salvarRegistros(registros);
 
-    registros.push(
-        registro
-    );
-
-
-
-    salvarRegistros(
-        registros
-    );
-
-
-
-    /* LIMPA OS CAMPOS */
-
-    campoGlicemia.value =
-        "";
-
-    campoObservacao.value =
-        "";
-
-
-
-    /* ATUALIZA */
-
-    mostrarHistorico();
-
-
-
-    /* VOLTA PARA O CAMPO */
-
-    campoGlicemia.focus();
-
-}
-
-
-
-/* ==================================================
-   MOSTRAR HISTÓRICO
-================================================== */
-
-
-function mostrarHistorico() {
-
-
-    const registros =
-        carregarRegistros();
-
+    renderizarHistorico();
 
 
     /*
-        Mais recente primeiro.
-    */
+     * Limpa formulário
+     */
+
+    campoGlicemia.value = "";
+    campoObservacao.value = "";
 
 
-    registros.sort(
-
-        function(a, b) {
-
-            return (
-
-                new Date(
-                    b.dataHora
-                )
-
-                -
-
-                new Date(
-                    a.dataHora
-                )
-
-            );
-
-        }
-
+    mostrarStatus(
+      "Registro salvo no celular. Sincronizando...",
+      ""
     );
 
 
+    /*
+     * 2 — Envia para Google Sheets
+     */
+
+    const sucesso =
+      await enviarParaGoogle(registro);
+
+
+    if (sucesso) {
+
+      /*
+       * Marca como sincronizado
+       */
+
+      const atuais =
+        obterRegistros();
+
+      const encontrado =
+        atuais.find(
+          r => r.id === registro.id
+        );
+
+      if (encontrado) {
+
+        encontrado.sincronizado = true;
+
+        salvarRegistros(atuais);
+
+      }
+
+      renderizarHistorico();
+
+      mostrarStatus(
+        "Registro salvo no celular e sincronizado com a planilha.",
+        "ok"
+      );
+
+    } else {
+
+      mostrarStatus(
+        "Registro salvo no celular. Não foi possível sincronizar agora.",
+        "erro"
+      );
+
+    }
+
+  }
+
+
+  /*
+   * Envia um registro ao Google Apps Script
+   */
+
+  async function enviarParaGoogle(registro) {
 
     /*
-        Nenhum registro
-    */
-
+     * Se a URL ainda não foi configurada,
+     * não tenta enviar.
+     */
 
     if (
-        registros.length === 0
+      !GOOGLE_SCRIPT_URL ||
+      GOOGLE_SCRIPT_URL.includes(
+        "COLE_AQUI"
+      )
     ) {
 
-        historico.innerHTML = `
-
-            <p class="vazio">
-
-                Nenhuma glicemia registrada.
-
-            </p>
-
-        `;
-
-        return;
+      return false;
 
     }
 
 
+    try {
 
-    historico.innerHTML =
-        "";
+      /*
+       * text/plain evita uma requisição
+       * preflight mais complexa no navegador.
+       */
 
+      await fetch(
+        GOOGLE_SCRIPT_URL,
+        {
 
+          method: "POST",
 
-    registros.forEach(
+          mode: "no-cors",
 
-        function(registro) {
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
 
+          body: JSON.stringify({
 
-            const data =
-                new Date(
-                    registro.dataHora
-                );
+            id: registro.id,
 
+            dataHora: registro.dataHora,
 
+            glicemia: registro.glicemia,
 
-            const dia =
-                String(
-                    data.getDate()
-                ).padStart(
-                    2,
-                    "0"
-                );
+            observacao: registro.observacao,
 
+            origem: "Dextro"
 
-            const mes =
-                String(
-                    data.getMonth() + 1
-                ).padStart(
-                    2,
-                    "0"
-                );
+          })
 
-
-            const ano =
-                data.getFullYear();
+        }
+      );
 
 
-            const hora =
-                String(
-                    data.getHours()
-                ).padStart(
-                    2,
-                    "0"
-                );
+      /*
+       * Com no-cors o navegador não permite
+       * ler a resposta do servidor.
+       *
+       * Por isso consideramos o envio concluído
+       * quando a requisição é aceita pelo navegador.
+       */
+
+      return true;
+
+    } catch (erro) {
+
+      console.error(
+        "Erro ao sincronizar:",
+        erro
+      );
+
+      return false;
+
+    }
+
+  }
 
 
-            const minuto =
-                String(
-                    data.getMinutes()
-                ).padStart(
-                    2,
-                    "0"
-                );
+  /*
+   * Tenta sincronizar registros que ainda
+   * não foram sincronizados.
+   */
+
+  async function sincronizarPendentes() {
+
+    const registros =
+      obterRegistros();
+
+    let houveAlteracao = false;
 
 
+    for (
+      const registro of registros
+    ) {
 
-            const item =
-                document.createElement(
-                    "div"
-                );
+      if (
+        registro.sincronizado
+      ) {
 
+        continue;
 
-            item.className =
-                "medicao";
-
-
-
-            item.innerHTML = `
-
-                <div>
-
-                    <div class="valor">
-
-                        ${registro.glicemia}
-                        mg/dL
-
-                    </div>
+      }
 
 
-                    <div class="data-hora">
-
-                        ${dia}/${mes}/${ano}
-                        às
-                        ${hora}:${minuto}
-
-                    </div>
+      const sucesso =
+        await enviarParaGoogle(
+          registro
+        );
 
 
-                    ${
-                        registro.observacao
+      if (sucesso) {
 
-                        ?
+        registro.sincronizado = true;
 
-                        `
+        houveAlteracao = true;
 
-                        <div class="observacao">
+      }
 
-                            ${escaparHTML(
-                                registro.observacao
-                            )}
-
-                        </div>
-
-                        `
-
-                        :
-
-                        ""
-
-                    }
-
-                </div>
+    }
 
 
-                <button
+    if (houveAlteracao) {
 
-                    class="btn-excluir"
+      salvarRegistros(registros);
 
-                    data-id="${registro.id}"
+      renderizarHistorico();
 
-                >
+    }
 
-                    Excluir
-
-                </button>
-
-            `;
+  }
 
 
+  /*
+   * Exibe o histórico
+   */
 
-            historico.appendChild(
-                item
+  function renderizarHistorico() {
+
+    const container =
+      document.getElementById(
+        "historico"
+      );
+
+    const registros =
+      obterRegistros();
+
+
+    if (
+      registros.length === 0
+    ) {
+
+      container.innerHTML =
+        '<div class="vazio">' +
+        'Nenhum registro ainda.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      registros.map(
+        (registro, indice) => {
+
+          const data =
+            new Date(
+              registro.dataHora
+            );
+
+          const dataFormatada =
+            data.toLocaleDateString(
+              "pt-BR"
+            );
+
+          const horaFormatada =
+            data.toLocaleTimeString(
+              "pt-BR",
+              {
+                hour: "2-digit",
+                minute: "2-digit"
+              }
             );
 
 
+          const sincronizacao =
+            registro.sincronizado
+              ? "Sincronizado"
+              : "Aguardando sincronização";
 
-            item
 
-                .querySelector(
-                    ".btn-excluir"
-                )
+          return `
 
-                .addEventListener(
+            <div class="registro">
 
-                    "click",
+              <div class="valor">
+                ${registro.glicemia} mg/dL
+              </div>
 
-                    function() {
+              <div class="data">
+                ${dataFormatada}
+                às
+                ${horaFormatada}
+              </div>
 
-                        excluirRegistro(
-                            registro.id
-                        );
+              ${
+                registro.observacao
+                  ? `
+                    <div class="observacao">
+                      ${escaparHTML(
+                        registro.observacao
+                      )}
+                    </div>
+                  `
+                  : ""
+              }
 
-                    }
+              <div class="data">
+                ${sincronizacao}
+              </div>
 
-                );
+              <button
+                class="btn-excluir"
+                onclick="excluirRegistro(${indice})"
+              >
+                Excluir
+              </button>
+
+            </div>
+
+          `;
 
         }
+      ).join("");
 
-    );
-
-}
-
+  }
 
 
-/* ==================================================
-   EXCLUIR
-================================================== */
+  /*
+   * Exclui um registro somente do celular.
+   *
+   * A versão seguinte pode incluir exclusão
+   * sincronizada na planilha também.
+   */
 
-
-function excluirRegistro(
-    id
-) {
-
-
-    const registros =
-        carregarRegistros();
-
-
-
-    const novosRegistros =
-        registros.filter(
-
-            function(registro) {
-
-                return (
-                    registro.id !== id
-                );
-
-            }
-
-        );
-
-
-
-    salvarRegistros(
-        novosRegistros
-    );
-
-
-    mostrarHistorico();
-
-}
-
-
-
-/* ==================================================
-   APAGAR TUDO
-================================================== */
-
-
-function apagarTudo() {
-
+  function excluirRegistro(indice) {
 
     const confirmar =
-        confirm(
-
-            "Tem certeza que deseja apagar todo o histórico?"
-
-        );
-
+      confirm(
+        "Excluir este registro do celular?"
+      );
 
     if (!confirmar) {
 
-        return;
+      return;
+
+    }
+
+
+    const registros =
+      obterRegistros();
+
+    registros.splice(
+      indice,
+      1
+    );
+
+    salvarRegistros(registros);
+
+    renderizarHistorico();
+
+  }
+
+
+  /*
+   * Apaga histórico local
+   */
+
+  function apagarHistorico() {
+
+    const confirmar =
+      confirm(
+        "Apagar todo o histórico deste celular?"
+      );
+
+    if (!confirmar) {
+
+      return;
 
     }
 
 
     localStorage.removeItem(
-        CHAVE
+      STORAGE_KEY
     );
 
+    renderizarHistorico();
 
-    mostrarHistorico();
+    mostrarStatus(
+      "Histórico local apagado.",
+      ""
+    );
 
-}
-
-
-
-/* ==================================================
-   EXPORTAR CSV
-================================================== */
+  }
 
 
-function exportarCSV() {
+  /*
+   * Exporta os registros locais em CSV
+   */
 
+  function exportarCSV() {
 
     const registros =
-        carregarRegistros();
-
+      obterRegistros();
 
 
     if (
-        registros.length === 0
+      registros.length === 0
     ) {
 
-        alert(
-            "Não há registros para exportar."
-        );
+      alert(
+        "Não existem registros para exportar."
+      );
 
-        return;
+      return;
 
     }
 
 
-
     let csv =
-        "Glicemia (mg/dL);Data e hora;Observação\n";
-
+      "ID;Data/Hora;Glicemia;Observação;Sincronizado\n";
 
 
     registros.forEach(
+      registro => {
 
-        function(registro) {
-
-
-            const data =
-                new Date(
-                    registro.dataHora
-                );
-
-
-            const dia =
-                String(
-                    data.getDate()
-                ).padStart(
-                    2,
-                    "0"
-                );
+        const observacao =
+          String(
+            registro.observacao || ""
+          )
+          .replaceAll('"', '""');
 
 
-            const mes =
-                String(
-                    data.getMonth() + 1
-                ).padStart(
-                    2,
-                    "0"
-                );
+        csv +=
+          `"${registro.id}";` +
+          `"${registro.dataHora}";` +
+          `${registro.glicemia};` +
+          `"${observacao}";` +
+          `${registro.sincronizado ? "Sim" : "Não"}\n`;
 
-
-            const ano =
-                data.getFullYear();
-
-
-            const hora =
-                String(
-                    data.getHours()
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            const minuto =
-                String(
-                    data.getMinutes()
-                ).padStart(
-                    2,
-                    "0"
-                );
-
-
-            const dataHora =
-                `${dia}/${mes}/${ano} ${hora}:${minuto}`;
-
-
-            const observacao =
-                (
-                    registro.observacao ||
-                    ""
-                )
-                .replaceAll(
-                    '"',
-                    '""'
-                );
-
-
-            csv +=
-                `${registro.glicemia};` +
-                `"${dataHora}";` +
-                `"${observacao}"\n`;
-
-        }
-
+      }
     );
 
 
-
-    const arquivo =
-        new Blob(
-
-            [
-                "\ufeff" +
-                csv
-            ],
-
-            {
-                type:
-                    "text/csv;charset=utf-8"
-            }
-
-        );
-
+    const blob =
+      new Blob(
+        [csv],
+        {
+          type: "text/csv;charset=utf-8;"
+        }
+      );
 
 
     const url =
-        URL.createObjectURL(
-            arquivo
-        );
-
+      URL.createObjectURL(blob);
 
 
     const link =
-        document.createElement(
-            "a"
-        );
+      document.createElement("a");
 
-
-    link.href =
-        url;
-
+    link.href = url;
 
     link.download =
-        "historico-glicemia.csv";
-
+      "historico-glicemia.csv";
 
     link.click();
 
 
+    URL.revokeObjectURL(url);
 
-    URL.revokeObjectURL(
-        url
-    );
-
-}
+  }
 
 
+  /*
+   * Pressionar Enter no campo de glicemia
+   * registra automaticamente.
+   */
 
-/* ==================================================
-   SEGURANÇA
-================================================== */
-
-
-function escaparHTML(
-    texto
-) {
-
-    return texto
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
-
-}
-
-
-
-/* ==================================================
-   EVENTOS
-================================================== */
-
-
-botaoRegistrar.addEventListener(
-
-    "click",
-
-    registrarGlicemia
-
-);
-
-
-
-botaoExportar.addEventListener(
-
-    "click",
-
-    exportarCSV
-
-);
-
-
-
-botaoApagar.addEventListener(
-
-    "click",
-
-    apagarTudo
-
-);
-
-
-
-/*
-    Permite apertar ENTER
-    no campo da glicemia.
-*/
-
-
-campoGlicemia.addEventListener(
-
-    "keydown",
-
-    function(evento) {
+  document
+    .getElementById("glicemia")
+    .addEventListener(
+      "keydown",
+      function(event) {
 
         if (
-            evento.key === "Enter"
+          event.key === "Enter"
         ) {
 
-            registrarGlicemia();
+          event.preventDefault();
+
+          registrarGlicemia();
 
         }
 
-    }
-
-);
-
+      }
+    );
 
 
-/* ==================================================
-   INICIALIZAÇÃO
-================================================== */
+  /*
+   * Inicialização
+   */
 
+  renderizarHistorico();
 
-mostrarHistorico();
+  /*
+   * Tenta enviar registros pendentes
+   * quando o aplicativo é aberto.
+   */
 
+  sincronizarPendentes();
 
 </script>
 
-
 </body>
-
 </html>
-```
